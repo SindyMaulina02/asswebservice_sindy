@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-=======
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
->>>>>>> 8d4935b3f6d9cf4157719d3289ba246525d760a2
     <title>Class List</title>
     <style>
         body {
@@ -73,11 +68,7 @@
         }
 
         tr:nth-child(even) {
-<<<<<<< HEAD
             background-color: #e6f7ff;
-=======
-            background-color: #e6f7ff; /* Warna latar belakang untuk baris genap */
->>>>>>> 8d4935b3f6d9cf4157719d3289ba246525d760a2
         }
 
         .btn {
@@ -85,11 +76,7 @@
             padding: 0.5rem 1rem;
             border: none;
             border-radius: 4px;
-<<<<<<< HEAD
             background-color: #0c6e05;
-=======
-            background-color: #0c6e05; /* Warna tombol */
->>>>>>> 8d4935b3f6d9cf4157719d3289ba246525d760a2
             color: white;
             font-size: 1rem;
             cursor: pointer;
@@ -99,7 +86,6 @@
         }
 
         .btn:hover {
-<<<<<<< HEAD
             background-color: #0f5e10;
         }
 
@@ -108,16 +94,6 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-=======
-            background-color: #0f5e10; /* Warna tombol saat dihover */
-        }
-
-        .btn-container {
-            text-align: right;
-            margin-bottom: 1rem;
-        }
-    </style>
->>>>>>> 8d4935b3f6d9cf4157719d3289ba246525d760a2
 </head>
 <body>
     <div class="sidebar">
@@ -134,23 +110,16 @@
                 <tr>
                     <th>Class Name</th>
                     <th>Semester</th>
-<<<<<<< HEAD
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="kelasTableBody">
-=======
-                </tr>
-            </thead>
-            <tbody id="classTableBody">
->>>>>>> 8d4935b3f6d9cf4157719d3289ba246525d760a2
                 <!-- Classes will be loaded here dynamically -->
             </tbody>
         </table>
     </div>
 
     <script>
-<<<<<<< HEAD
         document.addEventListener("DOMContentLoaded", () => {
             const apiUrl = "https://130.162.195.228/mhs714220018/kelas";
             const token = localStorage.getItem("token");
@@ -168,7 +137,7 @@
 
             if (isTokenExpired(token)) {
                 Swal.fire("Sesi Berakhir", "Sesi Anda telah berakhir. Silakan login kembali.", "warning").then(() => {
-                    window.location.href = "index.html";
+                    window.location.href = "login.html";
                 });
                 return;
             }
@@ -216,7 +185,7 @@
                         window.location.href = "login.html";
                     });
                 } else {
-                    Swal.fire("Error!", `tidak dapat dihapus: ${error.message}`, "error");
+                    Swal.fire("Error!", `Terjadi masalah pada operasi fetch Anda: ${error.message}`, "error");
                 }
             });
 
@@ -251,30 +220,6 @@
                     }
                 });
             }
-=======
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch("https://130.162.195.228/mhs714220018/kelas")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const tableBody = document.getElementById('classTableBody');
-
-                    data.forEach(kelas => {
-                        const row = tableBody.insertRow();
-                        row.innerHTML = `
-                            <td>${kelas.nama_kelas}</td>
-                            <td>${kelas.semester}</td>
-                        `;
-                    });
-                })
-                .catch(error => {
-                    console.error("There has been a problem with your fetch operation:", error);
-                });
->>>>>>> 8d4935b3f6d9cf4157719d3289ba246525d760a2
         });
     </script>
 </body>
