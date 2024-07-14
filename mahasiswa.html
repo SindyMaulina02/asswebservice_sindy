@@ -93,6 +93,7 @@
             text-align: right;
             margin-bottom: 1rem;
         }
+<<<<<<< HEAD
 
         .action-btn {
             display: inline-block;
@@ -113,6 +114,9 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+=======
+    </style>
+>>>>>>> 8d4935b3f6d9cf4157719d3289ba246525d760a2
 </head>
 <body>
     <div class="sidebar">
@@ -133,7 +137,10 @@
                     <th>Jurusan</th>
                     <th>User ID</th>
                     <th>Kelas ID</th>
+<<<<<<< HEAD
                     <th>Action</th> <!-- New column for actions -->
+=======
+>>>>>>> 8d4935b3f6d9cf4157719d3289ba246525d760a2
                 </tr>
             </thead>
             <tbody id="mahasiswaTableBody">
@@ -143,6 +150,7 @@
     </div>
 
     <script>
+<<<<<<< HEAD
         document.addEventListener("DOMContentLoaded", () => {
             const apiUrl = "https://130.162.195.228/mhs714220018/mahasiswa";
             const token = localStorage.getItem("token");
@@ -227,6 +235,34 @@
                     }
                 });
             }
+=======
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("https://130.162.195.228/mhs714220018/mahasiswa")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const tableBody = document.getElementById('mahasiswaTableBody');
+
+                    data.forEach(mahasiswa => {
+                        const row = tableBody.insertRow();
+                        row.innerHTML = `
+                            <td>${mahasiswa.id}</td>
+                            <td>${mahasiswa.nama}</td>
+                            <td>${mahasiswa.nim}</td>
+                            <td>${mahasiswa.jurusan}</td>
+                            <td>${mahasiswa.user_id}</td>
+                            <td>${mahasiswa.kelas_id}</td>
+                        `;
+                    });
+                })
+                .catch(error => {
+                    console.error("There has been a problem with your fetch operation:", error);
+                });
+>>>>>>> 8d4935b3f6d9cf4157719d3289ba246525d760a2
         });
     </script>
 </body>
