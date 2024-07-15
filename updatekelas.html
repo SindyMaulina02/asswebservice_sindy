@@ -96,6 +96,14 @@
                 const kelasId = getKelasIdFromQueryParam(); // Fungsi untuk mendapatkan ID kelas dari query parameter
                 const token = localStorage.getItem("token"); // Ambil token dari local storage, pastikan token sudah tersedia
 
+                if (!token) {
+                    alert("Token tidak ditemukan. Silakan login kembali.");
+                    console.error("Token tidak ditemukan di localStorage.");
+                    return;
+                }
+
+                console.log("Token yang digunakan:", token);
+
                 const data = {
                     nama_kelas: namaKelas,
                     semester: parseInt(semester) // Pastikan semester diubah ke tipe integer jika diperlukan
