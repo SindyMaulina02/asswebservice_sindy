@@ -48,8 +48,16 @@
                 body: JSON.stringify({ username: username, password: password })
             })
             .then(response => {
-                console.log('Response:', response);
-                return response.json();
+                // Log the raw response text
+                return response.text().then(text => {
+                    console.log('Raw response:', text);
+                    try {
+                        // Attempt to parse the text as JSON
+                        return JSON.parse(text);
+                    } catch (e) {
+                        throw new Error('Response is not valid JSON: ' + text);
+                    }
+                });
             })
             .then(data => {
                 console.log('Data:', data);
